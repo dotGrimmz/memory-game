@@ -1,52 +1,53 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
 
-const csvJSON = (csv) => {
-  const lines = csv.split("\n");
-  const result = [];
-  const headers = lines[0]
-    .split(",")
-    .map((x) => x.replace(/[|&;$%@"<>()+,]/g, ""));
-  for (let i = 1; i < lines.length; i++) {
-    if (!lines[i]) continue;
-    const obj = {};
-    const currentline = lines[i].split(",");
-    for (let j = 0; j < headers.length; j++) {
-      obj[headers[j]] = currentline[j];
-    }
-    result.push(obj);
-  }
-  return result;
-};
+import "./App.css";
+import PokeCard from "../src/components/pokeCard/PokeCard";
 
 const App = () => {
-  const [movies, setMovie] = useState([]);
+  const [pokeImg, setPokeImg] = useState({});
+  const [pokeName, setPokeName] = useState("");
 
-  // Used to get Data on Load - useEffect
   useEffect(() => {
     // async function called to fetch then setState
     const getData = async () => {
-      // Makes request to database
-      let res = await axios.get(
-        "https://gist.githubusercontent.com/tiangechen/b68782efa49a16edaf07dc2cdaa855ea/raw/0c794a9717f18b094eabab2cd6a6b9a226903577/movies.csv"
-      );
-
-      // Parses Response if needed
-      let parsedData = csvJSON(res?.data);
-
-      // sets the state with the fetched data
-      setMovie(parsedData);
+      let res = await axios.get("https://pokeapi.co/api/v2/pokemon/1");
+      console.log(res.data);
+      setPokeImg({
+        frontImg: res?.data?.sprites?.front_default,
+        backImg: res?.data?.sprites?.back_default,
+      });
+      setPokeName(res?.data?.name);
+      // Parses Response if needed - possibly optional
     };
 
+    // Now call the method to be run after you create it.
     getData();
   }, []);
 
   return (
-    <ol>
-      {movies.map((movie, index) => (
-        <li key={index}>{movie.Film}</li>
-      ))}
-    </ol>
+    <>
+      <PokeCard
+        frontImg={pokeImg.frontImg}
+        backImg={pokeImg.backImg}
+        name={pokeName}
+      />
+      <PokeCard
+        frontImg={pokeImg.frontImg}
+        backImg={pokeImg.backImg}
+        name={pokeName}
+      />
+      <PokeCard
+        frontImg={pokeImg.frontImg}
+        backImg={pokeImg.backImg}
+        name={pokeName}
+      />
+      <PokeCard
+        frontImg={pokeImg.frontImg}
+        backImg={pokeImg.backImg}
+        name={pokeName}
+      />
+    </>
   );
 };
 

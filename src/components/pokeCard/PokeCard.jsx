@@ -2,7 +2,7 @@ import React, { useState } from "react";
 
 import { CardContainer, Divider, CardImg, PokeName } from "./PokeCard.styles";
 
-const PokeCard = (props) => {
+export const PokeCard = (props) => {
   const [showFront, setShowFront] = useState(false);
   const { frontImg, backImg, name } = props;
 
@@ -18,5 +18,3 @@ const PokeCard = (props) => {
     </CardContainer>
   );
 };
-
-export default PokeCard;

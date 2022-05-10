@@ -9,11 +9,11 @@ export const CardContainer = styled.div`
   display: flex;
   flex-direction: column;
   cursor: pointer;
-  /* justify-content: center; */
+  align-items: center;
 `;
 
 export const Divider = styled.hr`
-  width: auto;
+  width: 100%;
   margin: 0px;
 `;
 

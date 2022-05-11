@@ -6,9 +6,10 @@ export const GameBoardContainer = styled.div`
   justify-content: center;
   height: 400px;
   max-width: 85%;
+  margin: auto;
 `;
 
 export const CardRow = styled.div`
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
 `;

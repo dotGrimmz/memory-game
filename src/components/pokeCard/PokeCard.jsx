@@ -4,10 +4,11 @@ import { CardContainer, Divider, CardImg, PokeName } from "./PokeCard.styles";
 
 export const PokeCard = (props) => {
   const [showFront, setShowFront] = useState(false);
-  const { frontImg, backImg, name } = props;
+  const { frontImg, backImg, name, type } = props;
 
   return (
     <CardContainer
+      type={type}
       onMouseEnter={() => setShowFront(!showFront)}
       onMouseLeave={() => setShowFront(!showFront)}
     >

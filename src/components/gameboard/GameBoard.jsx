@@ -6,15 +6,14 @@ import { GameBoardContainer, CardRow } from "./GameBoard.styles";
 
 export const GameBoard = (props) => {
   const { pokemon } = props;
-  console.log(pokemon);
   return (
     <GameBoardContainer>
       <CardRow>
         {pokemon.map((poke, index) => {
-          console.log(poke);
           return (
             <div key={index}>
               <PokeCard
+                type={poke.type}
                 frontImg={poke.frontImg}
                 backImg={poke.backImg}
                 name={poke.name}

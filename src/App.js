@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 
 import "./App.css";
-import { GameBoard } from "./components/gamboard/GameBoard";
+import { GameBoard } from "./components/gameboard/GameBoard";
 
 import { PokeService } from "./service/PokeService";
 
@@ -17,6 +17,7 @@ const App = () => {
     } else {
       getData().then((data) => setPokemonData(data));
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return (

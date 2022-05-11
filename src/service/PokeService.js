@@ -1,15 +1,23 @@
 import axios from "axios";
 import { MockPokeData } from "../__data__/MOCK_POKE_DATA";
 
+import { rndInt } from "../utils";
+
 export const PokeService = () => {
   const getData = async (amount = 5) => {
     let pokemonCardData = [];
+
     for (let i = 1; i <= amount; i++) {
-      let res = await axios.get(`https://pokeapi.co/api/v2/pokemon/${i}`);
+      let randomNumber = rndInt();
+      let res = await axios.get(
+        `https://pokeapi.co/api/v2/pokemon/${randomNumber}`
+      );
+      console.log(res.data.types[0].type.name);
       pokemonCardData.push({
         frontImg: res?.data?.sprites?.front_default,
         backImg: res?.data?.sprites?.back_default,
         name: res?.data?.name,
+        type: res?.data?.types[0]?.type?.name,
       });
     }
     return pokemonCardData;

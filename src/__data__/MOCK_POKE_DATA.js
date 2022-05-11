@@ -1,7 +1,8 @@
+import ninetails from "../assets/ninetails.jpg";
+
 export const MockPokeData = [
   {
-    frontImg:
-      "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/1.png",
+    frontImg: ninetails,
     backImg:
       "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/back/1.png",
     name: "bulbasaur",

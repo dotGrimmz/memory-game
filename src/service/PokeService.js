@@ -12,7 +12,6 @@ export const PokeService = () => {
       let res = await axios.get(
         `https://pokeapi.co/api/v2/pokemon/${randomNumber}`
       );
-      console.log(res.data.types[0].type.name);
       pokemonCardData.push({
         frontImg: res?.data?.sprites?.front_default,
         backImg: res?.data?.sprites?.back_default,
@@ -27,7 +26,7 @@ export const PokeService = () => {
     return MockPokeData;
   };
 
-  const useMockData = false;
+  const useMockData = true;
 
   return { getData, getMockData, useMockData };
 };

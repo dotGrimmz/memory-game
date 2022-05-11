@@ -19,18 +19,18 @@ export const CardContainer = styled.div`
 `;
 
 const typeColors = {
-  poison: "pink",
-  fire: "salmon",
-  normal: "lightgreen",
+  poison: "indigo",
+  fire: "orangered",
+  normal: "silver",
   bug: "darkgreen",
-  water: "cerulean",
-  ground: "brown",
-  electric: "yellow",
-  ghost: "darkpurple",
-  psychic: "lightpurple",
+  water: "aqua",
+  ground: "sienna",
+  electric: "gold",
+  ghost: "darkslategrey",
+  psychic: "orchid",
   grass: "green",
-  rock: "grey",
-  fighting: "brown",
+  rock: "chocolate",
+  fighting: "peachpuff",
 };
 
 export const Divider = styled.hr`
@@ -42,6 +42,13 @@ export const CardImg = styled.img`
   height: 175px;
   width: 175px;
   display: ${(props) => (props.hide ? "none" : null)};
+  transition: 0.6s;
+
+  ${(props) =>
+    props.front &&
+    `&:hover {
+    background-color: ${typeColors[props.type]}
+  }`}
 `;
 
 export const PokeName = styled.h3`

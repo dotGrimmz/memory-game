@@ -26,7 +26,7 @@ export const PokeService = () => {
     return MockPokeData;
   };
 
-  const useMockData = true;
+  const useMockData = false;
 
   return { getData, getMockData, useMockData };
 };

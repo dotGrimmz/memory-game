@@ -4,7 +4,7 @@ export const CardContainer = styled.div`
   width: min-content;
   background-color: grey;
   border-radius: 15%;
-  outline: 4px solid green;
+  outline: 4px solid purple;
   display: flex;
   flex-direction: column;
   cursor: pointer;

@@ -1,25 +1,26 @@
 import React from "react";
-import { ScoreBoardContainer } from "./ScoreBoard.styles";
+import {
+  ScoreBoardContainer,
+  PokeSubTitle,
+  PokeLabel,
+  ScoreContainer,
+  ScoreText,
+} from "./ScoreBoard.styles";
 
-export const ScoreBoard = ({ currentScore, bestScore }) => {
+export const ScoreBoard = (props) => {
+  const { currentScore, bestScore } = props;
   return (
     <ScoreBoardContainer>
       <div>
-        <h2 style={{ color: "black" }}>Poke-Memory Game</h2>
-        <p>Try to not click the same pokemon twice!</p>
+        <PokeLabel>Poke-Memory Game</PokeLabel>
+        <PokeSubTitle>Try to not click the same pokemon twice!</PokeSubTitle>
       </div>
-      <div
-        style={{
-          backgroundColor: "white",
-          height: "100px",
-          width: "auto",
-        }}
-      >
-        <h1 style={{ color: "green" }}>Best Score:{bestScore} </h1>
-      </div>
-      <div style={{ backgroundColor: "white", height: "100px", width: "auto" }}>
-        <h1 style={{ color: "blue" }}>Current Score: {currentScore} </h1>
-      </div>
+      <ScoreContainer>
+        <ScoreText best>Best Score:{bestScore} </ScoreText>
+      </ScoreContainer>
+      <ScoreContainer>
+        <ScoreText>Current Score: {currentScore} </ScoreText>
+      </ScoreContainer>
     </ScoreBoardContainer>
   );
 };

@@ -12,6 +12,7 @@ const App = () => {
   const [pokemonData, setPokemonData] = useState([]);
   const [currentScore, setCurrentScore] = useState(0);
   const [bestScore, setBestScore] = useState(0);
+
   const [selectedPokemon, setSelectedPokemon] = useState([]);
 
   const resetGame = () => {
@@ -32,7 +33,10 @@ const App = () => {
       if (newScore > bestScore) {
         setBestScore(newScore);
       }
+
       setCurrentScore(newScore);
+      console.log({ selectedPokemon }, "prev");
+
       setSelectedPokemon((prev) => [...prev, pokemonName]);
     }
   };
@@ -46,7 +50,8 @@ const App = () => {
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
-  console.log({ currentScore, bestScore });
+  console.log({ selectedPokemon });
+
   return (
     <>
       <GameBoard

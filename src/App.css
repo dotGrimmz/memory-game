@@ -2,4 +2,5 @@ body {
   background-image: url("./assets/gengar.png");
   background-attachment: fixed;
   background-position: center;
+  margin: 0;
 }

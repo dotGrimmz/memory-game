@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import { shuffleArray } from "../utils";
 import { PokeService } from "../service/PokeService";
 
-export const usePokeMemory = () => {
+export const usePokeMemory = (difficulty = 5) => {
   const { getData, getMockData, useMockData } = PokeService();
   const [pokemonData, setPokemonData] = useState([]);
   const [currentScore, setCurrentScore] = useState(0);
@@ -42,10 +42,10 @@ export const usePokeMemory = () => {
       const data = getMockData();
       setPokemonData(data);
     } else {
-      getData()
+      getData(difficulty)
         .then((data) => setPokemonData(data))
         .finally(() => {
-          setLoading(true);
+          setLoading(false);
         });
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps

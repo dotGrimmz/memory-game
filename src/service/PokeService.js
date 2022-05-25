@@ -4,7 +4,7 @@ import { MockPokeData } from "../__data__/MOCK_POKE_DATA";
 import { rndInt } from "../utils";
 
 export const PokeService = () => {
-  const getData = async (amount = 5) => {
+  const getData = async (amount) => {
     let pokemonCardData = [];
 
     for (let i = 1; i <= amount; i++) {

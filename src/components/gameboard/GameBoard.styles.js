@@ -13,4 +13,7 @@ export const GameBoardContainer = styled.div`
 export const CardRow = styled.div`
   display: flex;
   justify-content: space-between;
+  flex-wrap: wrap;
+  padding: 20px;
+  gap: 15px;
 `;

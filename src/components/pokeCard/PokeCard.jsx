@@ -8,13 +8,14 @@ export const PokeCard = (props) => {
 
   return (
     <CardContainer
+      data-testid="poke-card"
       onClick={() => handleClick(name)}
       type={type}
       onMouseEnter={() => setShowFront(!showFront)}
       onMouseLeave={() => setShowFront(!showFront)}
     >
-      <CardImg hide={!showFront} src={frontImg} />
-      <CardImg hide={showFront} src={backImg} />
+      <CardImg data-testid="front-image" hide={!showFront} src={frontImg} />
+      <CardImg data-testid="back-image" hide={showFront} src={backImg} />
       <Divider />
       <PokeName>{name}</PokeName>
     </CardContainer>

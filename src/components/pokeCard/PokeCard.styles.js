@@ -10,7 +10,7 @@ export const CardContainer = styled.div`
   cursor: pointer;
   align-items: center;
   transition: 0.6s;
-
+  height: 230px;
   ${(props) =>
     props.type &&
     `&:hover {

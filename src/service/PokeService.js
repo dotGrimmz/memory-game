@@ -26,7 +26,26 @@ export const PokeService = () => {
     return MockPokeData;
   };
 
+  const options = {
+    method: "GET",
+    url: "https://unogs-unogs-v1.p.rapidapi.com/search/deleted",
+    headers: {
+      "X-RapidAPI-Host": "unogs-unogs-v1.p.rapidapi.com",
+      "X-RapidAPI-Key": "536dbfe084msha7cb4cc7f42921fp15a7d9jsnd25d21dce7bd",
+    },
+  };
+  const getMovieData = () => {
+    axios
+      .request(options)
+      .then(function (response) {
+        console.log(response.data);
+      })
+      .catch(function (error) {
+        console.error(error);
+      });
+  };
+
   const useMockData = false;
 
-  return { getData, getMockData, useMockData };
+  return { getData, getMockData, useMockData, getMovieData };
 };

@@ -3,7 +3,7 @@ import { shuffleArray } from "../utils";
 import { PokeService } from "../service/PokeService";
 
 export const usePokeMemory = (difficulty = 5) => {
-  const { getData, getMockData, useMockData } = PokeService();
+  const { getData, getMockData, useMockData, getMovieData } = PokeService();
   const [pokemonData, setPokemonData] = useState([]);
   const [currentScore, setCurrentScore] = useState(0);
   const [bestScore, setBestScore] = useState(0);
@@ -51,5 +51,12 @@ export const usePokeMemory = (difficulty = 5) => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
-  return { pokemonData, handleClick, bestScore, currentScore, loading };
+  return {
+    pokemonData,
+    handleClick,
+    bestScore,
+    currentScore,
+    loading,
+    getMovieData,
+  };
 };

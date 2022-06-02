@@ -1,8 +1,10 @@
 import { useNavigate } from "react-router-dom";
+import { usePokeContext } from "../../context/usePokeContext";
 
-export const StartGameComponent = (props) => {
+export const StartGameComponent = () => {
   const navigateTo = useNavigate();
-  const { setDifficulty } = props;
+  const { setDifficulty } = usePokeContext();
+
   const handleNavigation = (amt) => {
     setDifficulty(amt);
     navigateTo("memory-game");
@@ -14,7 +16,7 @@ export const StartGameComponent = (props) => {
         I lost to Brock .. vs his Geodude
       </button>
       <button onClick={() => handleNavigation(10)}>Moltres got away..</button>
-      <button onClick={() => handleNavigation(15)}>
+      <button onClick={() => handleNavigation(12)}>
         Mewtwo captured with a Great ball
       </button>
     </>

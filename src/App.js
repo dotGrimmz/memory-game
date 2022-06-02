@@ -3,8 +3,9 @@ import { GameBoard } from "./components/gameboard/GameBoard";
 
 import { usePokeMemory } from "./hooks/usePokeMemory";
 import { Loader } from "./components/loader/Loader";
-const App = (props) => {
-  const { difficulty } = props;
+import { usePokeContext } from "./context/usePokeContext";
+const App = () => {
+  const { difficulty } = usePokeContext();
 
   const {
     pokemonData,
@@ -12,8 +13,8 @@ const App = (props) => {
     bestScore,
     currentScore,
     loading,
+    getMovieData,
   } = usePokeMemory(difficulty);
-
   if (loading) {
     return <Loader />;
   }
